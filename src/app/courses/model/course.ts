@@ -19,10 +19,8 @@ export function compareCourses(c1:Course, c2: Course) {
 
   if (compare > 0) {
     return 1;
-  }
-  else if ( compare < 0) {
+  } else if ( compare < 0) {
     return -1;
-  }
-  else return 0;
+  } else return 0;
 
 }
