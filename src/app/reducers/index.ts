@@ -12,10 +12,19 @@ export interface AppState {
 
 }
 
+export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
+  return (state, action) => {
+    console.log('State before: ', state);
+    console.log('Action: ', action);
+
+    return reducer(state, action);
+  }
+}
+
 export const reducers: ActionReducerMap<AppState> = {
   router: routerReducer
 };
 
 
 export const metaReducers: MetaReducer<AppState>[] =
-!environment.production ? [] : [];
+!environment.production ? [logger] : [];
