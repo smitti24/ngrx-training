@@ -78,3 +78,8 @@ We can checkout the remote branch and start tracking it with a local branch that
 
 It's also possible to download a ZIP file for a given branch,  using the branch dropdown on this page on the top left, and then selecting the Clone or Download / Download as ZIP button.
 
+# Meta Reducers:
+- Current state + action = new state version.
+- Processed before normal state reducers are invoked. 
+- New action -> All meta reducers are triggered -> other reducers are triggered.
+
