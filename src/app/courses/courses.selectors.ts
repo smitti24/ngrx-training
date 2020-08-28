@@ -5,6 +5,11 @@ import * as fromCourses from './reducers/course.reducers';
 
 export const selectCoursesState = createFeatureSelector<CoursesState>('courses');
 
+export const areCoursesLoaded = createSelector(
+  selectCoursesState,
+  state => state.allCoursesLoaded
+);
+
 export const selectAllCourses = createSelector(
   selectCoursesState,
   fromCourses.selectAll
@@ -12,12 +17,12 @@ export const selectAllCourses = createSelector(
 
 export const selectBeginnerCourses = createSelector(
   selectAllCourses,
-  courses => courses.filter(course => course.category === 'ADVANCED')
+  courses => courses.filter(course => course.category === 'BEGINNER')
 );
 
 export const selectAdvancedCourses = createSelector(
   selectAllCourses,
-  courses => courses.filter(course => course.category === 'BEGINNER')
+  courses => courses.filter(course => course.category === 'ADVANCED')
 );
 
 export const selectPromoTotal = createSelector(
